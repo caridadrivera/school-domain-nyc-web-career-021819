@@ -1,24 +1,28 @@
-# code here!
-
-class School #the school class is a considered a model in the domain
-
-
-  def initialize(school)
-    @school = school
-  end
-  
-  def roster
+class School
+  def initialize(name)
+    @name = name
     @roster = {}
   end
-  
-#setter
-def grade=(grade)
-  @grade = grade
-end
 
-#getter
-def grade
-  @grade
-end
+   def roster
+    @roster
+  end
 
-end
+   def add_student(name, grade)
+    if @roster[grade] != nil
+      @roster[grade] << name
+    else
+      @roster[grade] = [name]
+    end
+  end
+
+   def grade(grade)
+    @roster[grade]
+  end
+
+   def sort
+    @roster.each do |key, value|
+      value.sort!
+    end
+  end
+end 
